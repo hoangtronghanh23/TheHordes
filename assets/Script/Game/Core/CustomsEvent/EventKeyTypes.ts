@@ -1,0 +1,1 @@
+export type EventKeyTypes = "Input_Down" | "Input_Up" | "Input_Move" |"SetUpPlayer"
