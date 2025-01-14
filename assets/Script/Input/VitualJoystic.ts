@@ -44,8 +44,8 @@ export class VirtualJoystic extends Component implements IInput {
         this.node.active = true;
         this.#defaultPosition = location;
 
-        this.node.setPosition(new Vec3(this.#defaultPosition.x, this.#defaultPosition.y, 0));
-        this.knob.position = new Vec3();
+        this.node.setWorldPosition(new Vec3(this.#defaultPosition.x, this.#defaultPosition.y, 0));
+        this.knob.worldPosition = new Vec3();
     }
 
     private deactivateJoystic(): void {
