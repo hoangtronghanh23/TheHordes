@@ -8,10 +8,12 @@ const { ccclass, property } = _decorator;
 @ccclass('Player')
 export class Player extends CustomComponent {
     input : IInput;
-    speed : number = 0.3;
+    speed : number = 1;
+    check : boolean = false;
     start() {
-       // this.gameManager.eventManager.addObserver("SetUpPlayer",this.SetUpInput.bind(this));
-        this.SetUpInput();
+        console.log(this.gameManager.eventManager);
+        this.gameManager.eventManager.addObserver("SetUpPlayer",this.SetUpInput.bind(this));
+        //this.SetUpInput();
     }
     SetUpInput(){
         const wasd = new KeyboardInput(KeyCode.KEY_W, KeyCode.KEY_S, KeyCode.KEY_A, KeyCode.KEY_D);
@@ -21,13 +23,17 @@ export class Player extends CustomComponent {
         this.init(multiInput);
     }
     update(dt : number){
+       // if(!this.check) return;
         this.gameStic(dt);
     }
     public init(input: IInput){
         this.input = input;
-        console.log(this.input);
+        this.check = true;
+
+        console.log('da vao', this.input);
     }
     public gameStic(dt : number){
+        console
         if (this.input== null) return;
         this.move(dt);
     }

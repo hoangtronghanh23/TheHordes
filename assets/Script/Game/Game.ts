@@ -16,6 +16,8 @@ export class Game extends Component {
         director.getScene().getComponentsInChildren(CustomComponent).forEach((component) => {
             (component as unknown as ICanGetGameManager).setGameManager(this);
         })
+    }
+    start(){
         this.SetUp();
     }
     private SetUp(){
